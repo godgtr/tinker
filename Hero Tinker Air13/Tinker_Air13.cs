@@ -1857,23 +1857,14 @@ namespace Tinker_Air13
             FindItems();
             if (target != null && target.IsValid && !target.IsIllusion && target.IsAlive && target.IsVisible)
             {
-				var start = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 50);
-				var starts = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 49);
-				var start2 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 70);
-				var start2s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 69);
-				var start3 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 90);
-				var start3s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 89);
-                Drawing.DrawText(procastdamage.ToString(), start2s, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(procastdamage.ToString(), start2, new Vector2(21, 21), (target.Health < procastdamage) ? Color.Lime : Color.Red, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-				Drawing.DrawText(EZkill(target) ? alldamage.ToString()+" ez" : alldamage.ToString(), start3s, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(EZkill(target) ? alldamage.ToString()+" ez" : alldamage.ToString(), start3, new Vector2(21, 21), EZkill(target) ? Color.Lime : Color.Red, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
+				
                
 
 
 			}  
 			var coordX = 600;
 			
-/*          Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
+            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
             Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
@@ -1894,7 +1885,7 @@ namespace Tinker_Air13
 						
 			Drawing.DrawText("mana", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 232 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
 			Drawing.DrawText("mana", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 232), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
-			if (Refresh != null && Refresh.Level>0) */
+			if (Refresh != null && Refresh.Level>0)
 			{
 				Drawing.DrawText(manaprocast().ToString()+" ("+(-manaprocast()+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
 				Drawing.DrawText(manaprocast().ToString()+" ("+(-manaprocast()+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200),(me.Mana>manaprocast())? Color.LimeGreen : Color.Red, FontFlags.AntiAlias);			
