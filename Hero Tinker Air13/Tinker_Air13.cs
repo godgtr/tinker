@@ -1892,6 +1892,8 @@ namespace Tinker_Air13
             Drawing.DrawText((2*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);			
             Drawing.DrawText((3*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText((3*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 310), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);		
+				Drawing.DrawText(null, showText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
 						
 						
 			Drawing.DrawText("mana", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 232 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
