@@ -1845,7 +1845,6 @@ namespace Tinker_Air13
 		
         static void Information(EventArgs args)
         {
-			if (Menu.Item("UI").GetValue<bool>())
             if (!Game.IsInGame || Game.IsWatchingGame)
                 return;
             me = ObjectMgr.LocalHero;
@@ -1856,6 +1855,7 @@ namespace Tinker_Air13
 				
             target = me.ClosestToMouseTarget(1000);
             FindItems();
+			if (Menu.Item("UI").GetValue<bool>())
             if (target != null && target.IsValid && !target.IsIllusion && target.IsAlive && target.IsVisible)
             {
 				var start = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 50);
