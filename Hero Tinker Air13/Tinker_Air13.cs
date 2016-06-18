@@ -86,7 +86,7 @@ namespace Tinker_Air13
 			Menu.AddItem(new MenuItem("autoDisable", "Auto disable/counter enemy").SetValue(true));
 			Menu.AddItem(new MenuItem("autoKillsteal", "Auto killsteal enemy").SetValue(true));
 			Menu.AddItem(new MenuItem("UI", "UI").SetValue(true));
-			Menu.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
+			Menu.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeX())));;
             Menu.AddSubMenu(_skills);
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
