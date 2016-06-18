@@ -1874,7 +1874,7 @@ namespace Tinker_Air13
 			}
 			
 			var coordX = 900;
-			var coordY = 100;
+			var coordY = -100;
 			
             Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX + coordY + coordY, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX + coordY + coordY, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
