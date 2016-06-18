@@ -101,6 +101,9 @@ namespace Tinker_Air13
 			_drawings.AddItem(new MenuItem("dmgcalc", "dmg calc1").SetValue(true));
 			_drawings.AddSubMenu(_UI1);
 			_drawings.AddSubMenu(_dmgcalc1);
+			_UI1.AddItem(new MenuItem("UI", "UI").SetValue(true));
+			_dmgcalc1.AddItem(new MenuItem("dmgcalc", "dmgcalc").SetValue(true));
+			
 			
 
             Menu.AddToMainMenu();
