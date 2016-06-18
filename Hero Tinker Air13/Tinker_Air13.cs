@@ -24,7 +24,7 @@ namespace Tinker_Air13
         private static readonly Menu _ranges = new Menu("Ranges", "Ranges");
 		private static readonly Menu _drawings = new Menu("Drawings", "Drawings");
 		private static readonly Menu _UI1 = new Menu ("UI", "UI1");
-		private static readonly Menu _dmgcalc1 = new Menu ("dmgcalc", "dmg calc1");
+		private static readonly Menu _dmgcalc1 = new Menu ("dmg calc", "dmg calc1");
 
         private static readonly Dictionary<string, bool> Skills = new Dictionary<string, bool>
             {
@@ -100,7 +100,7 @@ namespace Tinker_Air13
             _ranges.AddItem(new MenuItem("Rocket Range", "Show Rocket Range").SetValue(true));
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
 			_UI1.AddItem(new MenuItem("UI", "UI").SetValue(true));
-			_dmgcalc1.AddItem(new MenuItem("dmgcalc1", "dmg calc").SetValue(true));
+			_dmgcalc1.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
 			
 			
 
