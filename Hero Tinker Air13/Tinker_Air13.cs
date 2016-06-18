@@ -1905,6 +1905,10 @@ namespace Tinker_Air13
         
 		}
 		
+<<<<<<< HEAD
 		1
+=======
+		privet1
+>>>>>>> 03813e8a0762d8f018552099671fde5c73ca0c80
     }
 }
