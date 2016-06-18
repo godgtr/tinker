@@ -90,7 +90,7 @@ namespace Tinker_Air13
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
 			Menu.AddSubMenu(_drawings);
-			_drawings.AddSubMenu("Hello", "hello").SetValue(true));
+			_drawings.AddSubMenu(_hello);
             _skills.AddItem(new MenuItem("Skills: ", "Skills:").SetValue(new AbilityToggler(Skills)));
             _items.AddItem(new MenuItem("Items: ", "Items:").SetValue(new AbilityToggler(Items)));
             _ranges.AddItem(new MenuItem("Blink Range", "Show Blink Dagger Range").SetValue(true));
