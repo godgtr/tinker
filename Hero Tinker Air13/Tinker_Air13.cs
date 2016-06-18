@@ -1862,14 +1862,8 @@ namespace Tinker_Air13
 				var start3 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 90);
 				var start3s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 89);
 				Drawing.DrawText(EZkill(target) ? alldamage.ToString()+" ez" : alldamage.ToString(), starts, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(EZkill(target) ? alldamage.ToString()+" ez" : alldamage.ToString(), start, new Vector2(21, 21), EZkill(target) ? Color.Lime : Color.Red, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(procastdamage.ToString(), start2s, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(procastdamage.ToString(), start2, new Vector2(21, 21), (target.Health < procastdamage) ? Color.Lime : Color.Red, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(factdamage(target).ToString(), start3s, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-                Drawing.DrawText(factdamage(target).ToString(), start3, new Vector2(21, 21), (target.Health < factdamage(target)) ? Color.Lime : Color.Red, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
-
-
-			}  
+                
+                			}  
 			var coordX = 600;
 			
             Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
@@ -1901,6 +1895,7 @@ namespace Tinker_Air13
 				Drawing.DrawText((2*manaprocast()+rearm_mana[Refresh.Level - 1]).ToString()+" ("+(-(2*manaprocast()+rearm_mana[Refresh.Level - 1])+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX , HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), (me.Mana>(2*manaprocast()+rearm_mana[Refresh.Level - 1]))? Color.LimeGreen : Color.Red, FontFlags.AntiAlias);			
 				Drawing.DrawText((3*manaprocast()+2*rearm_mana[Refresh.Level - 1]).ToString()+" ("+(-(3*manaprocast()+2*rearm_mana[Refresh.Level - 1])+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
 				Drawing.DrawText((3*manaprocast()+2*rearm_mana[Refresh.Level - 1]).ToString()+" ("+(-(3*manaprocast()+2*rearm_mana[Refresh.Level - 1])+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 310), new Vector2(30, 200), (me.Mana>(3*manaprocast()+2*rearm_mana[Refresh.Level - 1]))? Color.LimeGreen : Color.Red, FontFlags.AntiAlias);			
+				privet
 			}
 			else
 			{
