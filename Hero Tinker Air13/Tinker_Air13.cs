@@ -1885,7 +1885,7 @@ namespace Tinker_Air13
 				
             target = me.ClosestToMouseTarget(1000);
             FindItems();
-			if (Menu.Item("UI").GetValue<bool>())
+			if (Menu.Item("dmgcalc").GetValue<bool>())
 			
 			var coordX = 600;
 			
