@@ -1865,7 +1865,7 @@ namespace Tinker_Air13
 				
             target = me.ClosestToMouseTarget(1000);
             FindItems();
-			if (Menu.Item("UI").GetValue<bool>())
+			if (_UI1.Item("UI").GetValue<bool>())
             if (target != null && target.IsValid && !target.IsIllusion && target.IsAlive && target.IsVisible)
             {
 				var start = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 50);
@@ -1885,7 +1885,7 @@ namespace Tinker_Air13
 			}
 			
 			var coordX = 600;
-			if (Menu.Item("dmgcalc").GetValue<bool>())
+			if (_dmgcalc1.Item("dmgcalc").GetValue<bool>())
 				  {
             Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
