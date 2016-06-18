@@ -87,6 +87,8 @@ namespace Tinker_Air13
 			Menu.AddItem(new MenuItem("autoKillsteal", "Auto killsteal enemy").SetValue(true));
 			Menu.AddItem(new MenuItem("UI", "UI").SetValue(true));
 			Menu.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
+			Menu.AddItem(new MenuItem("x", "Text position X").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeX())));
+            Menu.AddItem(new MenuItem("y", "Text position Y").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeY())));
             Menu.AddSubMenu(_skills);
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
@@ -1858,12 +1860,12 @@ namespace Tinker_Air13
 			if (Menu.Item("UI").GetValue<bool>())
             if (target != null && target.IsValid && !target.IsIllusion && target.IsAlive && target.IsVisible)
             {
-				var start = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 30);
-				var starts = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 30);
-				var start2 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 30);
-				var start2s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 30);
-				var start3 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 10);
-				var start3s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 30);
+				var start = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 50);
+				var starts = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 49);
+				var start2 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 70);
+				var start2s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 69);
+				var start3 = HUDInfo.GetHPbarPosition(target) + new Vector2(0, HUDInfo.GetHpBarSizeY(target) - 90);
+				var start3s = HUDInfo.GetHPbarPosition(target) + new Vector2(1, HUDInfo.GetHpBarSizeY(target) - 89);
                 Drawing.DrawText(procastdamage.ToString(), start2s, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
                 Drawing.DrawText(procastdamage.ToString(), start2, new Vector2(21, 21), (target.Health < procastdamage) ? Color.Lime : Color.Red, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
 				Drawing.DrawText(EZkill(target) ? alldamage.ToString()+" ez" : alldamage.ToString(), start3s, new Vector2(21, 21), Color.Black, FontFlags.AntiAlias | FontFlags.Additive | FontFlags.DropShadow);
@@ -1876,14 +1878,20 @@ namespace Tinker_Air13
 			var coordX = 600;
 			if (Menu.Item("dmgcalc").GetValue<bool>())
 				  {
-            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
-            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
-            Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
-            Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
-            Drawing.DrawText("x3", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
-            Drawing.DrawText("x3", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 310), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
-			Drawing.DrawText("dmg", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -200 + coordX, HUDInfo.ScreenSizeY() / 2 + 232 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
-            Drawing.DrawText("dmg", new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 232), new Vector2(30, 200), Color.White, FontFlags.AntiAlias); 
+            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias); Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
+            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);	Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);		 Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
+            Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);		 Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);	
+            Drawing.DrawText("x3", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias); Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
+            Drawing.DrawText("x3", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 310), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);		 Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);	
+			Drawing.DrawText("dmg", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -200 + coordX, HUDInfo.ScreenSizeY() / 2 + 232 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias); Drawing.DrawText(null, DrawText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
+            Drawing.DrawText("dmg", new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 232), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);  
             Drawing.DrawText(averagedamage().ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -200 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText(averagedamage().ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);			
             Drawing.DrawText((2*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 285 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
