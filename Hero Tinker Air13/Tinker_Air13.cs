@@ -122,7 +122,7 @@ namespace Tinker_Air13
 			
             Player.OnExecuteOrder += Player_OnExecuteAction;
 			
-            Drawing.OnEndScene += Drawing_OnEndScene;
+            Drawing.OnEndScene += Information;
         }
 		
 		
@@ -1859,7 +1859,7 @@ namespace Tinker_Air13
 		
 		
 		
-        static void Drawing.OnEndScene(EventArgs args)
+        static void Information(EventArgs args)
         {
             if (!Game.IsInGame || Game.IsWatchingGame)
                 return;
