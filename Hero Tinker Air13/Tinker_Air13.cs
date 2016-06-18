@@ -107,6 +107,7 @@ namespace Tinker_Air13
             Player.OnExecuteOrder += Player_OnExecuteAction;
 			
             Drawing.OnDraw += Information;
+			Drawing.OnDraw += Information1;
         }
 		
 		
