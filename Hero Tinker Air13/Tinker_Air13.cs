@@ -100,7 +100,7 @@ namespace Tinker_Air13
             _ranges.AddItem(new MenuItem("Rocket Range", "Show Rocket Range").SetValue(true));
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
 			_UI1.AddItem(new MenuItem("UI", "UI").SetValue(true));
-			_dmgcalc1.AddItem(new MenuItem("dmgcalc", "dmgcalc").SetValue(true));
+			_dmgcalc1.AddItem(new MenuItem("dmg calc", "dmgcalc").SetValue(true));
 			
 			
 
