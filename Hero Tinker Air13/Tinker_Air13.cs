@@ -23,8 +23,8 @@ namespace Tinker_Air13
         private static readonly Menu _items = new Menu("Items", "Items");
         private static readonly Menu _ranges = new Menu("Ranges", "Ranges");
 		private static readonly Menu _drawings = new Menu("Drawings", "Drawings");
-		private static readonly Menu _UI1 = new Menu ("UI1", "UI");
-		private static readonly Menu _dmgcalc1 = new Menu ("dmgcalc1", "dmg calc");
+		private static readonly Menu _UI1 = new Menu ("UI", "UI1");
+		private static readonly Menu _dmgcalc1 = new Menu ("dmgcalc", "dmg calc1");
 
         private static readonly Dictionary<string, bool> Skills = new Dictionary<string, bool>
             {
