@@ -87,8 +87,6 @@ namespace Tinker_Air13
 			Menu.AddItem(new MenuItem("autoKillsteal", "Auto killsteal enemy").SetValue(true));
 			Menu.AddItem(new MenuItem("UI", "UI").SetValue(true));
 			Menu.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
-			Menu.AddItem(new MenuItem("x", "Text position X").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeX())));
-            Menu.AddItem(new MenuItem("y", "Text position Y").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeY())));
             Menu.AddSubMenu(_skills);
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
@@ -99,20 +97,6 @@ namespace Tinker_Air13
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
 
             Menu.AddToMainMenu();
-			
-			text = new Font(
-                Drawing.Direct3DDevice9,
-                new FontDescription {
-                    FaceName = "Tahoma",
-                    Height = 13 * (Menu.Item("size").GetValue<Slider>().Value / 2),
-                    OutputPrecision = FontPrecision.Raster,
-                    Quality = FontQuality.ClearTypeNatural,
-                    CharacterSet = FontCharacterSet.Hangul,
-                    MipLevels = 3,
-                    PitchAndFamily = FontPitchAndFamily.Modern,
-                    Weight = FontWeight.Heavy,
-                    Width = 5 * (Menu.Item("size").GetValue<Slider>().Value / 2)
-                });
 
             //Game.OnWndProc += ComboEngine;
             Game.OnUpdate += ComboEngine;
@@ -122,7 +106,7 @@ namespace Tinker_Air13
 			
             Player.OnExecuteOrder += Player_OnExecuteAction;
 			
-            Drawing.OnEndScene += Information;
+            Drawing.OnDraw += Information;
         }
 		
 		
@@ -1892,8 +1876,8 @@ namespace Tinker_Air13
 			var coordX = 600;
 			if (Menu.Item("dmgcalc").GetValue<bool>())
 				  {
-            showText=("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
-            showText=("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
+            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
+            Drawing.DrawText("x1", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
             Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText("x2", new Vector2(HUDInfo.ScreenSizeX() / 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.White, FontFlags.AntiAlias);			
             Drawing.DrawText("x3", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-240 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
@@ -1925,32 +1909,6 @@ namespace Tinker_Air13
 				Drawing.DrawText(manaprocast().ToString()+" ("+(-manaprocast()+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), (me.Mana>manaprocast())? Color.LimeGreen : Color.Red, FontFlags.AntiAlias);			
 				 }             
 				  }
-					{
-						private static void Information(EventArgs args) {
-            if (Drawing.Direct3DDevice9 == null || Drawing.Direct3DDevice9.IsDisposed || !inGame ||
-                !Menu.Item("key").GetValue<KeyBind>().Active)
-                return;
-
-            var showText = "Dodge enabled";
-            var color = Color.DarkOrange;
-
-            if (Menu.Item("panicMode").GetValue<KeyBind>().Active) {
-                showText = "Panic Mode";
-                color = Color.Red;
-            }
-
-            text.DrawText(null, showText, Menu.Item("x").GetValue<Slider>().Value,
-                Menu.Item("y").GetValue<Slider>().Value, color);
-        }
-
-        private static void Drawing_OnPostReset(EventArgs args) {
-            text.OnResetDevice();
-        }
-
-        private static void Drawing_OnPreReset(EventArgs args) {
-            text.OnLostDevice();
-        }
-						
         
 		} 
 		
