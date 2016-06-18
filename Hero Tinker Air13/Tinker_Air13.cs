@@ -1873,7 +1873,7 @@ namespace Tinker_Air13
 
 			}
 		}
-			static void Information(EventArgs args)
+			static void Information1(EventArgs args)
         {
             if (!Game.IsInGame || Game.IsWatchingGame)
                 return;
