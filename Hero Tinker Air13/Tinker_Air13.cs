@@ -87,6 +87,8 @@ namespace Tinker_Air13
 			Menu.AddItem(new MenuItem("autoKillsteal", "Auto killsteal enemy").SetValue(true));
 			Menu.AddItem(new MenuItem("UI", "UI").SetValue(true));
 			Menu.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
+			Menu.AddItem(new MenuItem("x", "Text position X").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeX())));
+            Menu.AddItem(new MenuItem("y", "Text position Y").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeY())));
             Menu.AddSubMenu(_skills);
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
@@ -1890,6 +1892,9 @@ namespace Tinker_Air13
             Drawing.DrawText((2*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);			
             Drawing.DrawText((3*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText((3*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 310), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);		
+			
+			text.DrawText(null, showText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
 						
 						
 			Drawing.DrawText("mana", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 232 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
