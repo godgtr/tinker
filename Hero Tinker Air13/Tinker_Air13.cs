@@ -1872,6 +1872,20 @@ namespace Tinker_Air13
 
 
 			}
+		}
+			static void Information(EventArgs args)
+        {
+            if (!Game.IsInGame || Game.IsWatchingGame)
+                return;
+            me = ObjectMgr.LocalHero;
+            if (me == null)
+                return;
+            if (me.ClassID != ClassID.CDOTA_Unit_Hero_Tinker)
+                return;
+				
+            target = me.ClosestToMouseTarget(1000);
+            FindItems();
+			if (Menu.Item("UI").GetValue<bool>())
 			
 			var coordX = 600;
 			
@@ -1911,7 +1925,7 @@ namespace Tinker_Air13
 				Drawing.DrawText(manaprocast().ToString()+" ("+(-manaprocast()+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), (me.Mana>manaprocast())? Color.LimeGreen : Color.Red, FontFlags.AntiAlias);			
 			}
         
-		} 
+		}
 		
 		
     }
