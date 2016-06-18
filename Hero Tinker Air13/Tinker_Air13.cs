@@ -92,15 +92,13 @@ namespace Tinker_Air13
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
 			Menu.AddSubMenu(_drawings);
+			_drawings.AddSubMenu(_UI1);
+			_drawings.AddSubMenu(_dmgcalc1);
             _skills.AddItem(new MenuItem("Skills: ", "Skills:").SetValue(new AbilityToggler(Skills)));
             _items.AddItem(new MenuItem("Items: ", "Items:").SetValue(new AbilityToggler(Items)));
             _ranges.AddItem(new MenuItem("Blink Range", "Show Blink Dagger Range").SetValue(true));
             _ranges.AddItem(new MenuItem("Rocket Range", "Show Rocket Range").SetValue(true));
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
-			_drawings.AddItem(new MenuItem("UI", "UI").SetValue(true));
-			_drawings.AddItem(new MenuItem("dmgcalc", "dmg calc1").SetValue(true));
-			_drawings.AddSubMenu(_UI1);
-			_drawings.AddSubMenu(_dmgcalc1);
 			_UI1.AddItem(new MenuItem("UI", "UI").SetValue(true));
 			_dmgcalc1.AddItem(new MenuItem("dmgcalc", "dmgcalc").SetValue(true));
 			
