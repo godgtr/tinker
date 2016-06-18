@@ -1926,6 +1926,30 @@ namespace Tinker_Air13
 				 }             
 				  }
 					{
+						private static void Information(EventArgs args) {
+            if (Drawing.Direct3DDevice9 == null || Drawing.Direct3DDevice9.IsDisposed || !inGame ||
+                !Menu.Item("key").GetValue<KeyBind>().Active)
+                return;
+
+            var showText = "Dodge enabled";
+            var color = Color.DarkOrange;
+
+            if (Menu.Item("panicMode").GetValue<KeyBind>().Active) {
+                showText = "Panic Mode";
+                color = Color.Red;
+            }
+
+            text.DrawText(null, showText, Menu.Item("x").GetValue<Slider>().Value,
+                Menu.Item("y").GetValue<Slider>().Value, color);
+        }
+
+        private static void Drawing_OnPostReset(EventArgs args) {
+            text.OnResetDevice();
+        }
+
+        private static void Drawing_OnPreReset(EventArgs args) {
+            text.OnLostDevice();
+        }
 						
         
 		} 
