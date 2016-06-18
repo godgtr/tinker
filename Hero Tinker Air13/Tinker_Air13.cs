@@ -22,6 +22,7 @@ namespace Tinker_Air13
         private static readonly Menu _skills = new Menu("Skills", "Skills");
         private static readonly Menu _items = new Menu("Items", "Items");
         private static readonly Menu _ranges = new Menu("Ranges", "Ranges");
+		private static readonly Menu _drawings = new Menu("Drawings", "Drawings");
 
         private static readonly Dictionary<string, bool> Skills = new Dictionary<string, bool>
             {
@@ -85,16 +86,18 @@ namespace Tinker_Air13
 
 			Menu.AddItem(new MenuItem("autoDisable", "Auto disable/counter enemy").SetValue(true));
 			Menu.AddItem(new MenuItem("autoKillsteal", "Auto killsteal enemy").SetValue(true));
-			Menu.AddItem(new MenuItem("UI", "UI").SetValue(true));
-			Menu.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
             Menu.AddSubMenu(_skills);
             Menu.AddSubMenu(_items);
             Menu.AddSubMenu(_ranges);
+			Menu.AddSubMenu(_drawings);
             _skills.AddItem(new MenuItem("Skills: ", "Skills:").SetValue(new AbilityToggler(Skills)));
             _items.AddItem(new MenuItem("Items: ", "Items:").SetValue(new AbilityToggler(Items)));
             _ranges.AddItem(new MenuItem("Blink Range", "Show Blink Dagger Range").SetValue(true));
             _ranges.AddItem(new MenuItem("Rocket Range", "Show Rocket Range").SetValue(true));
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
+			_drawings.AddItem(new MenuItem("UI", "UI").SetValue(true));
+			_drawings.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
+			
 
             Menu.AddToMainMenu();
 
