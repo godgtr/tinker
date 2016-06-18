@@ -101,6 +101,8 @@ namespace Tinker_Air13
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
 			_UI1.AddItem(new MenuItem("UI", "UI").SetValue(true));
 			_dmgcalc1.AddItem(new MenuItem("dmgcalc", "dmg calc").SetValue(true));
+			_UI1.AddItem(new MenuItem("x", "Text position X").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeX())));
+            _dmgcalc1.AddItem(new MenuItem("y", "Text position Y").SetValue(new Slider(0, 0, (int) HUDInfo.ScreenSizeY())));
 			
 			
 
