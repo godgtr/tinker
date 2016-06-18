@@ -99,6 +99,20 @@ namespace Tinker_Air13
             _ranges.AddItem(new MenuItem("Show Direction", "Show Direction Vector on Rearming").SetValue(true));
 
             Menu.AddToMainMenu();
+			
+			text = new Font(
+                Drawing.Direct3DDevice9,
+                new FontDescription {
+                    FaceName = "Tahoma",
+                    Height = 13 * (Menu.Item("size").GetValue<Slider>().Value / 2),
+                    OutputPrecision = FontPrecision.Raster,
+                    Quality = FontQuality.ClearTypeNatural,
+                    CharacterSet = FontCharacterSet.Hangul,
+                    MipLevels = 3,
+                    PitchAndFamily = FontPitchAndFamily.Modern,
+                    Weight = FontWeight.Heavy,
+                    Width = 5 * (Menu.Item("size").GetValue<Slider>().Value / 2)
+                });
 
             //Game.OnWndProc += ComboEngine;
             Game.OnUpdate += ComboEngine;
@@ -108,7 +122,7 @@ namespace Tinker_Air13
 			
             Player.OnExecuteOrder += Player_OnExecuteAction;
 			
-            Drawing.OnDraw += Information;
+            Drawing.OnEndScene += Drawing_OnEndScene;
         }
 		
 		
@@ -1845,7 +1859,7 @@ namespace Tinker_Air13
 		
 		
 		
-        static void Information(EventArgs args)
+        static void Drawing.OnEndScene(EventArgs args)
         {
             if (!Game.IsInGame || Game.IsWatchingGame)
                 return;
@@ -1892,8 +1906,6 @@ namespace Tinker_Air13
             Drawing.DrawText((2*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 285), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);			
             Drawing.DrawText((3*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2 + 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 310 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
             Drawing.DrawText((3*averagedamage()).ToString(), new Vector2(HUDInfo.ScreenSizeX() / 2-200 + coordX, HUDInfo.ScreenSizeY() / 2 + 310), new Vector2(30, 200), Color.LimeGreen, FontFlags.AntiAlias);		
-				Drawing.DrawText(null, showText, Menu.Item("x").GetValue<Slider>().Value,
-                Menu.Item("y").GetValue<Slider>().Value, color);
 						
 						
 			Drawing.DrawText("mana", new Vector2(HUDInfo.ScreenSizeX() / 2 + 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 232 + 2), new Vector2(30, 200), Color.Black, FontFlags.AntiAlias);
@@ -1913,6 +1925,8 @@ namespace Tinker_Air13
 				Drawing.DrawText(manaprocast().ToString()+" ("+(-manaprocast()+(int)me.Mana).ToString()+")", new Vector2(HUDInfo.ScreenSizeX() / 2 -120 + coordX, HUDInfo.ScreenSizeY() / 2 + 260), new Vector2(30, 200), (me.Mana>manaprocast())? Color.LimeGreen : Color.Red, FontFlags.AntiAlias);			
 				 }             
 				  }
+					{
+						
         
 		} 
 		
